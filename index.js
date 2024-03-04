@@ -21,7 +21,7 @@ const allPost = async() =>{
         }
         const div = document.createElement("div");
         div.innerHTML=`
-        <div class="flex flex-col md:flex-row mt-8 gap-5 bg-[#f7f8f8] md:p-8 rounded-3xl">
+        <div class="flex flex-col md:flex-row mt-8 gap-5 bg-[#f7f8f8] p-5 md:p-8 rounded-3xl">
         <div>
             <div class="w-[72px] h-[72px]  relative bg-white">
                 <img class="rounded-xl" src="${element['image']}" alt="">
@@ -85,7 +85,6 @@ searchBtn.addEventListener('click', function(){
         const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${inputValue}`);
         const data = await response.json();
     
-        
 
         data.posts.forEach(element => {
             let status=null;
@@ -96,7 +95,7 @@ searchBtn.addEventListener('click', function(){
             }
             const div = document.createElement("div");
             div.innerHTML=`
-            <div class="flex flex-col md:flex-row mt-8 gap-5 bg-[#f7f8f8] md:p-8 rounded-3xl">
+            <div class="flex flex-col md:flex-row mt-8 gap-5 bg-[#f7f8f8] p-5 md:p-8 rounded-3xl">
             <div>
                 <div class="w-[72px] h-[72px]  relative bg-white">
                     <img class="rounded-xl" src="${element['image']}" alt="">
