@@ -2,8 +2,9 @@
 const allPostContainer= document.getElementById("allPostContainer")
 const latestPostcontainer= document.getElementById("latestPostcontainer")
 const countSum= document.getElementById("countSum")
-
 const viewCountContainer= document.getElementById("viewCountContainer")
+const inputValue= document.getElementById("inputValue").value;
+const searchBtn= document.getElementById("searchBtn");
 
 
 
@@ -63,12 +64,24 @@ const allPost = async() =>{
     });
 }
 
+allPost();
 
 const latestPost = async() =>{
     const response = await fetch("https://openapi.programming-hero.com/api/retro-forum/latest-posts");
     const data = await response.json();
 
+    let designation=null;
+    
     data.forEach(element => {
+        if(element.author.designation){
+            designation=element.author.designation;
+        }else{
+            designation='unknown';
+        }
+
+        let postDate= element.author.posted_date? element.author.posted_date: 'No Publish Date';
+
+
         const div = document.createElement("div");
         div.innerHTML=`
         <div class="card md:w-96 bg-base-100 border shadow-xl">
@@ -78,7 +91,7 @@ const latestPost = async() =>{
             <div class="card-body">
                 <div class="flex">
                     <img class="mr-3" src="images/frame.png" alt="">
-                    <p>29 January 2024</p>
+                    <p>${postDate}</p>
                 </div>
                 <h2 class="card-title font-extrabold">${element['title']}</h2>
                 <p>${element['description']}</p>
@@ -88,7 +101,7 @@ const latestPost = async() =>{
                     </div>
                     <div>
                         <p>${element.author.name} </p>
-                        <p class="text-sm">${element.author.designation} </p>
+                        <p class="text-sm">${designation} </p>
                     </div>
                 </div>
             </div>
@@ -98,13 +111,13 @@ const latestPost = async() =>{
     });
 }
 
-let count =0;
+latestPost();
 
+let count =0;
 function viewCount(title,view){
 
 count+=1;
 countSum.innerText=count;
-console.log(count)
 const div=document.createElement('div');
 div.innerHTML=`
     <div class="flex bg-white rounded-xl p-4 mt-3 items-center justify-between">
@@ -122,5 +135,4 @@ viewCountContainer.appendChild(div)
 }
 
 
-allPost();
-latestPost();
+
