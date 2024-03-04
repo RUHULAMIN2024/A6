@@ -66,8 +66,9 @@
                     <p class="my-5 text-lg">Share your favorite opinion and win and wp <br>
                         forum coffee mug!</p>
                     <label class="input input-bordered rounded-full w-[80%] flex items-center gap-2">
-                        <input id="inputValue" type="text" class="md:grow" placeholder="Search here anything" />
-                        <button id="searchBtn" class="btn px-8 rounded-full text-white bg-blue-600">Search</button>
+                        
+                        <input id="inputValue" type="text" class="text-black grow" placeholder="Search here anything" />
+                        <a href="#discussSection" id="searchBtn" class="btn px-8 rounded-full text-white bg-blue-600">Search</a>
                     </label>
                 </div>
                 <div class="bg-white rounded-3xl text-2xl p-10">
@@ -94,11 +95,17 @@
     </header>
     <main>
         <section>
-            <div class="section py-20">
+            <div id="discussSection" class="section py-20">
                 <div class="text-center">
                     <h3 class="raleway font-bold text-[40px] mb-4">Let's Discuss</h3>
                     <p>Yes, you can run unit tests and view the results directly within the app. The <br>
                         integrated testing features allow for a streamlined </p>
+                </div>
+                <div id="loading" class="text-center mt-16 hidden">
+                    <span class="loading loading-bars loading-xs"></span>
+                    <span class="loading loading-bars loading-sm"></span>
+                    <span class="loading loading-bars loading-md"></span>
+                    <span class="loading loading-bars loading-lg"></span>
                 </div>
                 <div class="flex flex-col md:flex-row gap-8 justify-between bg-white my-10 px-0 md:px-10 rounded-3xl">
                     <div id="allPostContainer" class="w-[90%] md:w-[70%]">
@@ -139,9 +146,9 @@
                         </div> -->
                     </div>
                     <div class="bg-[#f7f8f8] mt-8 md:p-7 rounded-3xl">
-                        <div class="flex gap-20 font-bold justify-between">
+                        <div class="flex gap-10 font-bold justify-between">
                             <h5>Title</h5>
-                            <p>Mark as read (<span id="countSum">0</span>)</p>
+                            <p><img class="inline-block" src="images/tic.png" alt=""> Mark as read ( <span id="countSum">0</span> )</p>
                         </div>
                         <div id="viewCountContainer">
                             <!-- <div class="flex bg-white rounded-xl p-4 mt-3 items-center justify-between">
